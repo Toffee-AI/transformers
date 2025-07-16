@@ -557,7 +557,7 @@ class TrainingArguments:
                     Will use gradient checkpointing over each nested XLA FSDP wrapped layer. This setting can only be
                     used when the xla flag is set to true, and an auto wrapping policy is specified through
                     fsdp_min_num_params or fsdp_transformer_layer_cls_to_wrap.
-        deepspeed (`str` or `dict`, *optional*):
+        deepspeed (`str`, *optional*):
             Use [Deepspeed](https://github.com/deepspeedai/DeepSpeed). This is an experimental feature and its API may
             evolve in the future. The value is either the location of DeepSpeed json config file (e.g.,
             `ds_config.json`) or an already loaded json file as a `dict`"
@@ -567,7 +567,7 @@ class TrainingArguments:
                 *after* initializing the `TrainingArguments`, else it will not be applied.
             </Tip>
 
-        accelerator_config (`str`, `dict`, or `AcceleratorConfig`, *optional*):
+        accelerator_config (`str`, *optional*):
             Config to be used with the internal `Accelerator` implementation. The value is either a location of
             accelerator json config file (e.g., `accelerator_config.json`), an already loaded json file as `dict`,
             or an instance of [`~trainer_pt_utils.AcceleratorConfig`].
@@ -1258,7 +1258,7 @@ class TrainingArguments:
             )
         },
     )
-    accelerator_config: Optional[Union[dict, str]] = field(
+    accelerator_config: Optional[str] = field(
         default=None,
         metadata={
             "help": (
@@ -1267,7 +1267,7 @@ class TrainingArguments:
             )
         },
     )
-    deepspeed: Optional[Union[dict, str]] = field(
+    deepspeed: Optional[str] = field(
         default=None,
         metadata={
             "help": (
