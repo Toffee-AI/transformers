@@ -2555,9 +2555,6 @@ class Trainer:
                     # Skip past any already trained steps if resuming training
                     if steps_trained_in_current_epoch > 0:
                         steps_trained_in_current_epoch -= 1
-                        # store steps trained for data skipping
-                        if hasattr(epoch_iterator.dataset, "steps_trained_in_current_epoch"):
-                            epoch_iterator.dataset.steps_trained_in_current_epoch = steps_trained_in_current_epoch
                         if steps_trained_progress_bar is not None:
                             steps_trained_progress_bar.update(1)
                         if steps_trained_in_current_epoch == 0:
